@@ -2,6 +2,18 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block indexCSS
   body
+    nav.navbar.navbar-default
+      .navbar-header
+        a.navbar-brand(href="#") Nightlife
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="#") Link 1
+        li
+          a(href="#") Link 2
+        li
+          a(href="#") Link 3
     block content

@@ -1,5 +1,42 @@
 extends layout
 
+block indexCSS
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
 block content
-  h1= title
-  p Welcome to #{title}
+  .main-text-wrapper
+    .main-text NIGHTLIFE
+    .main-subtext Experience life
+
+  .transition-layer
+
+  .main-content-wrapper
+    .container
+      .row
+        .col-lg-2.col-lg-offset-1.place-picture-col
+          img(src='https://pbs.twimg.com/profile_images/604118658537930752/Eoo5Jk84.png')
+        .col-lg-8.place-info-col
+          h2.place-name Millionaire's Club
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada sem metus, id efficitur augue scelerisque ut. Aliquam placerat porttitor leo sit amet cursus. Aliquam dictum sem vitae neque imperdiet.
+          span.place-announcement
+            | 8 people going.
+            button(type="button").btn.btn-default.place-go-btn Go tonight
+      .row
+        .col-lg-2.col-lg-offset-1.place-picture-col
+          img(src='https://pbs.twimg.com/profile_images/636974247722643457/9XRVfSZ-.jpg')
+        .col-lg-8.place-info-col
+          h2.place-name John's Pub
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra, odio nec porta viverra, mi ipsum pharetra dolor, ac feugiat.
+          span.place-announcement
+            | 0 people going.
+            button(type="button").btn.btn-default.place-go-btn Go tonight
+      .row
+        .col-lg-2.col-lg-offset-1.place-picture-col
+          img(src='http://schneidermaninsurance.com/wp-content/uploads/2014/03/restaurant-icon-1-e1396080178803.png')
+        .col-lg-8.place-info-col
+          h2.place-name Buddy's Place
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus quis aliquam interdum. Phasellus consectetur diam sapien, euismod lobortis purus eleifend nec. In ut feugiat lorem. Proin condimentum id magna et lacinia. Curabitur lectus.
+          span.place-announcement
+            | 8 people going.
+            button(type="button").btn.btn-default.place-go-btn Go tonight
+
