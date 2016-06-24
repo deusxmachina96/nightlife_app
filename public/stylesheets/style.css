@@ -4,4 +4,26 @@ body {
 a {
   color: #00B7FF; }
 
+.navbar-default .navbar-brand, .navbar-default .navbar-nav {
+  color: white; }
+  .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-nav:hover, .navbar-default .navbar-nav:focus {
+    color: #5f5; }
+  .navbar-default .navbar-brand li > a, .navbar-default .navbar-nav li > a {
+    color: white; }
+    .navbar-default .navbar-brand li > a:hover, .navbar-default .navbar-brand li > a:focus, .navbar-default .navbar-nav li > a:hover, .navbar-default .navbar-nav li > a:focus {
+      color: #5f5;
+      background: #333; }
+
+.navbar-default {
+  width: 50%;
+  margin: 20px auto;
+  background: #222;
+  background: linear-gradient(#333, #222);
+  border: 1px solid #444;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 2px 0 #000; }
+
+.navbar-nav {
+  margin-right: 10px; }
+
 /*# sourceMappingURL=style.css.map */
