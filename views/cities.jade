@@ -6,15 +6,22 @@ block pageCSS
 block content
     .main-content-wrapper
       .container
-        each place in places
-          .row.place-wrapper
-            .col-lg-2.col-lg-offset-1.place-picture-col
-              img(src=place.picture)
-            .col-lg-8.place-info-col
-              h2.place-name= place.name
-              p= place.desc
-              span.place-announcement
-                | #{place.numberOfPeople} people going.
-                button(type="button").btn.btn-default.place-go-btn Go tonight
-          .row.line-break
-            .col-xs-12
+        if !error
+          each place in places
+            .row.place-wrapper
+              .col-lg-2.col-lg-offset-1.place-picture-col
+                img(src=place.image_url)
+              .col-lg-8.place-info-col
+                h2.place-name= place.name
+                p
+                  img(src=place.rating_img_url)
+                p= place.snippet_text
+                span.place-announcement
+                  | 3 people going.
+                  button(type="button").btn.btn-default.place-go-btn Go tonight
+            .row.line-break
+              .col-xs-12
+        else
+          .row
+            .col-lg-3.col-lg-offset-2
+              h1 City not found!
