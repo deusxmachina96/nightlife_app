@@ -1,6 +1,9 @@
 var express = require('express');
 var request = require('request');
+var bcrypt = require('bcryptjs');
+var User = require('../models/user_model');
 var router = express.Router();
+
 
 var makeAPIRequest = function(cityName, res) {
   var oauth = {
@@ -34,6 +37,7 @@ var makeAPIRequest = function(cityName, res) {
   });
 };
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
@@ -44,6 +48,30 @@ router.get('/', function(req, res, next) {
 router.get('/cities', function(req, res, next) {
   var cityName = req.query.city;
   var places = makeAPIRequest(cityName, res);
+});
+
+router.get('/register', function(req, res, next) {
+  res.render('register', {
+    message: decodeURIComponent(req.query.message)
+  });
+});
+
+router.post('/register', function(req, res, next) {
+  var username = req.body.username;
+  var password = req.body.password;
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(password, salt);
+  var user = new User({
+    username: username,
+    salt: salt,
+    hash: hash
+  });
+  user.save(function(err) {
+    if(err) {
+      console.log("Cannot save user, see error: ", err);
+    }
+  });
+  res.redirect('/register?message=Successful%20registration');
 });
 
 module.exports = router;

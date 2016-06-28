@@ -1,0 +1,18 @@
+extends layout
+
+block pageCSS
+    link(rel="stylesheet", href='/stylesheets/register.css')
+
+block content
+    .container
+        .row
+            .col-lg-4.col-lg-offset-4
+                if(message && message !== 'undefined')
+                  h1.main-header= message
+                else
+                  h1.main-header Sign Up
+                .form-wrapper
+                    form(action="/register", method="POST")
+                        input(type="text", name="username", placeholder="Username")
+                        input(type="password", name="password", placeholder="Password")
+                        input(type="submit", value="Sign Up", class="submit-button")

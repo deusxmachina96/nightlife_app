@@ -1,0 +1,32 @@
+.form-wrapper {
+  margin-top: 20px; }
+
+input {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 1.8em;
+  padding: 10px; }
+  input:focus {
+    outline: solid #3e8f3e; }
+
+.submit-button {
+  margin-top: 40px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px; }
+  .submit-button:hover {
+    background-color: #179126;
+    color: white;
+    border: 2px solid #106E1B; }
+  .submit-button:focus {
+    outline: none; }
+
+.main-header {
+  margin: 50px auto;
+  width: 150px;
+  color: #DCE5E8; }
+
+/*# sourceMappingURL=register.css.map */
