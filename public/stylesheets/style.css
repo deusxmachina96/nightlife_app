@@ -27,4 +27,28 @@ a {
 .navbar-nav {
   margin-right: 10px; }
 
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open a:focus, .navbar-default .navbar-nav > .open a:hover {
+  color: #5f5;
+  background: #333; }
+
+.dropdown-menu {
+  background: #222;
+  background: linear-gradient(#333, #222); }
+  .dropdown-menu:focus {
+    background: #222;
+    background: linear-gradient(#333, #222); }
+
+.message-wrapper {
+  width: 100%;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center; }
+
+.message-wrapper.warning {
+  color: darkred; }
+
+.message-wrapper.successful {
+  color: #2b542c; }
+
 /*# sourceMappingURL=style.css.map */

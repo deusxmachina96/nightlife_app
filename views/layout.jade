@@ -10,10 +10,26 @@ html
       .navbar-header
         a.navbar-brand(href="/") Nightlife
       ul.nav.navbar-nav.navbar-right
-        li
-          a(href="#") Link 1
-        li
-          a(href="#") Link 2
-        li
-          a(href="#") Link 3
+        if(!user)
+          li
+            a(href="/register") Sign Up
+        if(user)
+          li.dropdown
+            a(href="#", class="dropdown-toggle", data-toggle="dropdown", role="button")
+              | #{user.username}
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Account
+              li
+                a(href="/logout") Logout
+        else
+          li
+            a(href="/login") Login
+
     block content
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    script(src="/javascripts/bootstrap.min.js")

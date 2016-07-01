@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-
+var session = require('express-session');
 
 var routes = require('./routes/main_controller');
 
@@ -31,7 +31,9 @@ app.use(require('node-sass-middleware')({
   indentedSyntax: true,
   sourceMap: true
 }));
+app.use(session({secret: config.secret, resave: false, saveUninitialized: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 
