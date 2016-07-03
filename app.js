@@ -38,7 +38,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-mongoose.connect('mongodb://localhost:27017/nightlife_app_db', function (err) {
+
+mongoose.connect(config.dbOptions, function (err) {
   if(err) {
     console.log("Could not connect to mongodb, see error: ", err);
   }
