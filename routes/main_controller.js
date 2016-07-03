@@ -51,6 +51,10 @@ var makeAPIRequest = function(cityName, req, res) {
       else {
         async.each(response.businesses, function(user, place, cb) {
 
+          if(!place.image_url) {
+            place.image_url = '/images/no_image_found.jpg';
+          }
+
           Place.findOne({yelp_id: place.id}, function(err, found_place){
 
             if(err) {
