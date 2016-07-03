@@ -247,12 +247,11 @@ router.post('/login', function(req, res, next) {
     }
     
     if(!user) {
-      res.render('login', {
-        message: {
-          type: 'warning',
-          text: "Wrong username or password"
-        }
-      });
+      req.session.user_message = {
+        type: 'warning',
+        text: 'Wrong username or password'
+      };
+      res.redirect('/login?ref=' + req.body.reference);
     } 
         
     else {
@@ -274,7 +273,7 @@ router.post('/login', function(req, res, next) {
               type: 'warning',
               text: 'Wrong username or password'
             };
-            res.redirect('/login');
+            res.redirect('/login?ref=' + req.body.reference);
           }
         }
 
