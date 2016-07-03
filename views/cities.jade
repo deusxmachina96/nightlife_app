@@ -2,6 +2,7 @@ extends layout
 
 block pageCSS
     link(rel='stylesheet', href='/stylesheets/cities.css')
+    script(src='/javascripts/add_place.js')
 
 block content
     .main-content-wrapper
@@ -16,9 +17,15 @@ block content
                 p
                   img(src=place.rating_img_url)
                 p= place.snippet_text
-                span.place-announcement
-                  | 3 people going.
-                  button(type="button").btn.btn-default.place-go-btn Go tonight
+                .place-announcement
+                  span.number-of-people #{place.people} people going.
+                  if(user && !place.user_going)
+                    button(type="button", class="go-tonight positive-button", action="add_place", id=place.id).btn.btn-default.place-go-btn Go tonight
+                  else if (user && place.user_going)
+                    button(type="button", class="go-tonight negative-button", action="remove_place", id=place.id).btn.btn-default.place-go-btn Cancel plans
+                  else
+                    a(type="button", href=place.reference).btn.btn-default.place-go-btn Go tonight
+
             .row.line-break
               .col-xs-12
         else

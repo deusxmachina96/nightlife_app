@@ -13,6 +13,7 @@ block content
                 .form-wrapper
                     form(action="/login", method="POST")
                         input(type="text", name="username", placeholder="Username")
+                        input(type="hidden", name="reference", value=reference)
                         input(type="password", name="password", placeholder="Password")
                         input(type="submit", value="Login", class="submit-button")
 

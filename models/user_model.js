@@ -2,12 +2,6 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
 
-var PlaceSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    }
-});
 
 var UserSchema = new Schema({
     username: {
@@ -20,7 +14,7 @@ var UserSchema = new Schema({
         type: String,
         required: true
     },
-    going_to: [PlaceSchema]
+    going_to: [String]
 });
 
 UserSchema.pre('save', true, function(next, done) {
@@ -37,6 +31,7 @@ UserSchema.pre('save', true, function(next, done) {
     });
     next();
 });
+
 UserSchema.methods.verifyPassword = function(password, cb) {
     bcrypt.compare(password, this.hash, function(err, isMatch) {
         if(err) {
@@ -44,6 +39,10 @@ UserSchema.methods.verifyPassword = function(password, cb) {
         }
         cb(null, isMatch);
     });
+};
+
+UserSchema.methods.addPlace = function(placeID) {
+    this.going_to.push(placeID);
 };
 
 module.exports = mongoose.model('User', UserSchema);

@@ -4,6 +4,8 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
     block pageCSS
   body
     nav.navbar.navbar-default
@@ -16,11 +18,9 @@ html
         if(user)
           li.dropdown
             a(href="#", class="dropdown-toggle", data-toggle="dropdown", role="button")
-              | #{user.username}
+              span#username(username=user.username) #{user.username}
               span.caret
             ul.dropdown-menu
-              li
-                a(href="#") Account
               li
                 a(href="/logout") Logout
         else
@@ -29,7 +29,5 @@ html
 
     block content
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     script(src="/javascripts/bootstrap.min.js")
