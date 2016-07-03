@@ -6,15 +6,24 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
-var config = require('./config');
+var config;
+if(process.env.NODE_ENV == 'production') {
+  config = {
+    secret: process.env.SESSION_SECRET,
+    dbOptions: process.env.MONGODB_URI
+  }
+} else {
+  // Configure dotenv
+  require('dotenv').config({path: "config_file.env"});
+  config = require('./config');
+}
+
 
 var routes = require('./routes/main_controller');
 
 
 var app = express();
 
-// Configure dotenv
-require('dotenv').config({path: "config_file.env"});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
